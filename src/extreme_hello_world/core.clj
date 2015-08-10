@@ -1,6 +1,8 @@
-(ns extreme-hello-world.core)
+(ns extreme-hello-world.core
+  (:require [ring.adapter.jetty :as jetty])
+  (:gen-class))
 
-(defn foo
+(defn -main
   "I don't do a whole lot."
   [x]
   (println x "Hello, World!"))
