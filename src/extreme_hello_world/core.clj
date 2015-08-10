@@ -1,6 +1,6 @@
 (ns extreme-hello-world.core
   (:require [ring.adapter.jetty :as jetty]
-            [ring.middleware.reload :refer :all]
+            [ring.middleware.reload :refer [wrap-reload]]
             [ring.middleware.params :refer [wrap-params]])
   (:gen-class))
 
@@ -34,7 +34,9 @@
 (defn -main
   "I don't do a whole lot."
   [port]
-  (jetty/run-jetty (wrap-params (wrap-reload hello-world))
+  (jetty/run-jetty (-> #'hello-world
+                       wrap-params
+                       wrap-reload)
                    {:port (Integer. port)}))
 
 
