@@ -12,7 +12,7 @@
      :body (-> request
                :params ,,,
                (get ,,, "name")
-               (str ,,, " welcome to our hello work experience"))
+               (str ,,, " welcome to our hello world experience"))
      :headers []}))
 
 
